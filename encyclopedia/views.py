@@ -1,3 +1,5 @@
+import re
+
 from django.shortcuts import render
 
 from . import util
@@ -24,3 +26,32 @@ def article(request, title):
             "encyclopedia/article.html",
             {"message": "The requested page was not found!"},
         )
+
+
+def search(request):
+    query = request.POST["q"]
+    articles = util.list_entries()
+    found_articles = []
+    entries = []
+
+    if articles:
+        query_re = re.compile(f".*{re.escape(query)}", re.IGNORECASE)
+        found_articles = list(filter(query_re.match, articles))
+
+    if found_articles:
+        if query.lower() == found_articles[0].lower():
+            title = found_articles[0]
+            article = util.get_entry(title)
+            return render(
+                request,
+                "encyclopedia/article.html",
+                {"title": title, "article": article},
+            )
+        else:
+            for article in found_articles:
+                entries.append(article)
+                # entries.append(util.get_entry(article))
+            # return HttpResponse(f"Those are the search results: {entries}".encode())
+            return render(
+                request, "encyclopedia/search-results.html", {"entries": entries}
+            )
