@@ -1,3 +1,25 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Visual Studio Code #
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+# Neovim #
+.nvim/spell/*.spl
+.nvim/styles/*
+!.nvim/styles/Vocab/
+
 # Django #
 *.log
 *.pot
@@ -97,15 +119,6 @@ celerybeat-schedule.*
 # SageMath parsed files
 *.sage.py
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
 # mkdocs documentation
 /site
 
@@ -129,15 +142,3 @@ Control.ca-bundle
 Control.system-ca-bundle
 GitHub.sublime-settings
 
-# Visual Studio Code #
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history
-
-# Neovim
-.nvim/spell/*.spl
-.nvim/styles/*
-!.nvim/styles/Vocab/

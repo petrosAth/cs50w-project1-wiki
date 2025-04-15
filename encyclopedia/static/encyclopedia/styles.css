@@ -1,6 +1,7 @@
 body {
+    color: white;
     margin: 0;
-    background-color: white;
+    background-color: #2a2a33;
 }
 
 code {
@@ -28,11 +29,22 @@ textarea {
 }
 
 .sidebar {
-    background-color: #f0f0f0;
+    background-color: #292e32;
     height: 100vh;
     padding: 20px;
 }
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+.article-list {
+    list-style-type: none;
+}
+
+.error__article-not-found {
+    margin-top: 5px;
+    font-size: 20px;
+    padding: 20px;
+    color: var(--danger);
 }

@@ -2,7 +2,11 @@
 {% block title %}Encyclopedia{% endblock %}
 {% block body %}
     <h1>All Pages</h1>
-    <ul>
-        {% for entry in entries %}<li>{{ entry }}</li>{% endfor %}
+    <ul class="article-list">
+        {% for entry in entries %}
+            <li>
+                <a href="{% url 'articles:article' entry %}">{{ entry }}</a>
+            </li>
+        {% endfor %}
     </ul>
 {% endblock %}
