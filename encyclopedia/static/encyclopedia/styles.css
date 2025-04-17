@@ -41,7 +41,7 @@ textarea {
     list-style-type: none;
 }
 
-.error__article-not-found {
+.error-message {
     margin-top: 5px;
     font-size: 20px;
     padding: 20px;

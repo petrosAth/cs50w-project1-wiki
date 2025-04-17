@@ -71,6 +71,12 @@ def new(request):
         return render(request, "encyclopedia/new.html")
     else:
         title = request.POST["title"] or "New Article"
+        if title in util.list_entries():
+            return render(
+                request,
+                "encyclopedia/article.html",
+                {"message": "An article with the same title already exists!"},
+            )
         article = request.POST["article"] or ""
         util.save_entry(title, article)
         return render(
