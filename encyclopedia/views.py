@@ -30,7 +30,7 @@ def article(request, title):
 
 
 def search(request):
-    query = request.POST["q"]
+    query = request.POST["query"]
     articles = util.list_entries()
     found_articles = []
     entries = []
@@ -64,3 +64,15 @@ def random_article(request):
     return render(
         request, "encyclopedia/article.html", {"title": title, "article": article}
     )
+
+
+def new(request):
+    if "title" and "article" not in request.POST:
+        return render(request, "encyclopedia/new.html")
+    else:
+        title = request.POST["title"] or "New Article"
+        article = request.POST["article"] or ""
+        util.save_entry(title, article)
+        return render(
+            request, "encyclopedia/index.html", {"entries": util.list_entries()}
+        )

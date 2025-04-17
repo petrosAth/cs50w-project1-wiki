@@ -15,7 +15,6 @@ h1 {
 
 textarea {
     height: 90vh;
-    width: 80%;
 }
 
 .main {
@@ -47,4 +46,8 @@ textarea {
     font-size: 20px;
     padding: 20px;
     color: var(--danger);
+}
+
+textarea#article {
+    height: 90vh;
 }
