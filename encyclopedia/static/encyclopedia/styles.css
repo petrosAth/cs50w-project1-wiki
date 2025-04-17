@@ -48,6 +48,15 @@ textarea {
     color: var(--danger);
 }
 
+.article-container {
+    padding-block: 10px;
+}
+
 textarea#content {
     height: 90vh;
+}
+
+.btn-link,
+.btn-like:hover {
+    color: white;
 }

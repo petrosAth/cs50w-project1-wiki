@@ -4,6 +4,11 @@
     {% if message %}
         <div class="error-message">{{ message }}</div>
     {% else %}
-        {{ article }}
+        <div class="article-container">{{ article }}</div>
+        <div>
+            <button type="button" class="btn btn-primary">
+                <a class="btn-link" href="{% url 'articles:edit' title %}">Edit Article</a>
+            </button>
+        </div>
     {% endif %}
 {% endblock body %}

@@ -71,7 +71,7 @@ def new(request):
         return render(request, "encyclopedia/new.html")
     else:
         title = request.POST["title"] or "New Article"
-        if title in util.list_entries():
+        if "edit" not in request.POST and title in util.list_entries():
             return render(
                 request,
                 "encyclopedia/article.html",
@@ -80,3 +80,10 @@ def new(request):
         content = request.POST["content"] or ""
         util.save_entry(title, content)
         return article(request, title)
+
+
+def edit(request, title):
+    article = util.get_entry(title)
+    return render(
+        request, "encyclopedia/edit.html", {"title": title, "content": article}
+    )
