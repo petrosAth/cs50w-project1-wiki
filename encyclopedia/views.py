@@ -67,7 +67,7 @@ def random_article(request):
 
 
 def new(request):
-    if "title" and "article" not in request.POST:
+    if "title" and "content" not in request.POST:
         return render(request, "encyclopedia/new.html")
     else:
         title = request.POST["title"] or "New Article"
@@ -77,8 +77,6 @@ def new(request):
                 "encyclopedia/article.html",
                 {"message": "An article with the same title already exists!"},
             )
-        article = request.POST["article"] or ""
-        util.save_entry(title, article)
-        return render(
-            request, "encyclopedia/index.html", {"entries": util.list_entries()}
-        )
+        content = request.POST["content"] or ""
+        util.save_entry(title, content)
+        return article(request, title)

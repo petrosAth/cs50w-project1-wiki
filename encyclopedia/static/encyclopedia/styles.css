@@ -48,6 +48,6 @@ textarea {
     color: var(--danger);
 }
 
-textarea#article {
+textarea#content {
     height: 90vh;
 }
