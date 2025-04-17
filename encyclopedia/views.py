@@ -1,4 +1,5 @@
 import re
+from random import randrange
 
 from django.shortcuts import render
 
@@ -50,8 +51,16 @@ def search(request):
         else:
             for article in found_articles:
                 entries.append(article)
-                # entries.append(util.get_entry(article))
-            # return HttpResponse(f"Those are the search results: {entries}".encode())
             return render(
                 request, "encyclopedia/search-results.html", {"entries": entries}
             )
+
+
+def random_article(request):
+    entries = util.list_entries()
+    rng = randrange(1, len(entries))
+    title = entries[rng]
+    article = util.get_entry(title)
+    return render(
+        request, "encyclopedia/article.html", {"title": title, "article": article}
+    )
