@@ -1,11 +1,10 @@
 {% extends "encyclopedia/layout.html" %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-    {% load markdownify %}
     {% if message %}
         <div class="error-message">{{ message }}</div>
     {% else %}
-        <div class="article-container">{{ article|markdownify }}</div>
+        <div class="article-container">{{ article|safe }}</div>
         <div>
             <button type="button" class="btn btn-primary">
                 <a class="btn-link" href="{% url 'articles:edit' title %}">Edit Article</a>

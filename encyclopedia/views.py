@@ -1,6 +1,7 @@
 import re
 from random import randrange
 
+import markdown
 from django.shortcuts import render
 
 from . import util
@@ -18,7 +19,7 @@ def article(request, title):
             "encyclopedia/article.html",
             {
                 "title": title,
-                "article": article,
+                "article": markdown.markdown(article),
             },
         )
     else:
