@@ -47,7 +47,10 @@ def search(request):
             return render(
                 request,
                 "encyclopedia/article.html",
-                {"title": title, "article": article},
+                {
+                    "title": title,
+                    "article": markdown.markdown(article),
+                },
             )
         else:
             for article in found_articles:
@@ -63,7 +66,12 @@ def random_article(request):
     title = entries[rng]
     article = util.get_entry(title)
     return render(
-        request, "encyclopedia/article.html", {"title": title, "article": article}
+        request,
+        "encyclopedia/article.html",
+        {
+            "title": title,
+            "article": markdown.markdown(article),
+        },
     )
 
 
