@@ -43,7 +43,7 @@ def search(request):
     if found_articles:
         if query.lower() == found_articles[0].lower():
             title = found_articles[0]
-            article = util.get_entry(title)
+            article = util.get_entry(title) or ""
             return render(
                 request,
                 "encyclopedia/article.html",
@@ -64,7 +64,7 @@ def random_article(request):
     entries = util.list_entries()
     rng = randrange(1, len(entries))
     title = entries[rng]
-    article = util.get_entry(title)
+    article = util.get_entry(title) or ""
     return render(
         request,
         "encyclopedia/article.html",

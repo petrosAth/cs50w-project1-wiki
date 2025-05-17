@@ -10,6 +10,18 @@ This website was created as part of
 an online course focused on designing and implementing web applications using
 Python, JavaScript, and SQL with frameworks like Django, React, and Bootstrap.
 
+> [Video Demonstration](https://youtu.be/DX5OxTpNUiI)
+
+## Features
+
+- Browse all entries from the index page with clickable links.
+- View encyclopedia entries with full Markdown-to-HTML conversion.
+- Create new entries with title and Markdown content validation.
+- Edit existing entries with pre-filled Markdown content.
+- Search for entries with exact match or partial substring matching.
+- Visit a random encyclopedia entry.
+- Error handling for missing or duplicate entries.
+
 ## Languages
 
 - HTML
